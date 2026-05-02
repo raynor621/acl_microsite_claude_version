@@ -1,6 +1,9 @@
 # ACL Tear Microsite — M. Brett Raynor, M.D.
 
-A standalone single-page educational site about ACL injuries, intended to be hosted at its own URL (subdomain or standalone domain) and to point patients back to [brettraynormd.com](https://www.brettraynormd.com).
+A standalone single-page educational site about ACL injuries, designed to live at its own URL and point patients back to [brettraynormd.com](https://www.brettraynormd.com).
+
+**Repo:** [github.com/raynor621/acl_microsite_claude_version](https://github.com/raynor621/acl_microsite_claude_version)
+**Live URL:** _TBD — deploy via Vercel below_
 
 ## What's here
 
@@ -20,11 +23,13 @@ Or simply double-click `index.html` to open it in your default browser.
 
 ## Deploying to Vercel
 
-### Option 1 — connect this GitHub repo to Vercel
-1. Push this folder to a GitHub repo.
-2. Go to [vercel.com/new](https://vercel.com/new), import the repo.
+### Option 1 — connect this repo to Vercel (recommended)
+1. Go to [vercel.com/new](https://vercel.com/new) and click **Import Git Repository**.
+2. Authorize Vercel to access GitHub (one-time) and pick `acl_microsite_claude_version`.
 3. Accept the defaults — Vercel detects the static site automatically.
 4. Click **Deploy**. Live URL in ~30 seconds.
+
+Once connected, every commit to `main` auto-deploys. No manual redeploy step.
 
 ### Option 2 — deploy from your local machine
 ```bash
@@ -41,7 +46,18 @@ Once deployed, attach a custom domain (e.g. `acl.brettraynormd.com` or a standal
 
 The microsite is a single HTML file. Open `index.html` in any text editor to update copy. Sections are clearly marked with HTML comments (`<!-- HERO -->`, `<!-- SYMPTOMS & DIAGNOSIS -->`, etc.).
 
-Logo, headshot, and anatomy illustration are embedded as base64. To swap any of them, replace the corresponding `data:image/...;base64,...` string. Source files live in the parent vault under `Templates/Logos/`, `Templates/`, and `Templates/Medical Illustrations/`.
+**For small text edits** (typo, phone number, single sentence): edit `index.html` directly via GitHub's web editor — open the repo, click the file, click the pencil icon. Commit. Vercel auto-deploys.
+
+**For substantial changes** (new sections, swap images, design tweaks): edit the file locally and replace it on GitHub. The base64 image embeds make full-file replacement the cleanest path.
+
+## Embedded assets
+
+Logo, headshot, and anatomy illustration are embedded as base64 inside `index.html`. To swap any of them, replace the corresponding `data:image/...;base64,...` string. Source files live in the parent Obsidian vault under:
+
+- `Templates/Logos/brett-raynor-md-logo.png` — header logo
+- `Templates/Logos/toa-ols-logo.png` — footer logo
+- `Templates/brett-raynor-headshot.jpg` — About section headshot
+- `Templates/Medical Illustrations/acl-tear-illustration.png` — anatomy illustration
 
 The Jotform appointment form is form ID **261207287495161** ("ACL Appointment Request"). To swap it, update the iframe `src` and `id` attributes plus the embed handler script call.
 
